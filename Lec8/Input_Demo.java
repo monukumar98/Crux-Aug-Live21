@@ -15,6 +15,7 @@ public class Input_Demo {
 		}
 		display(arr);
 		int [] b = New_array(5);
+		b = new int [3];
 		display(b);
 
 	}
