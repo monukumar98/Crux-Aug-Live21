@@ -11,7 +11,7 @@ public class Check_Prime {
 		// n=sc.nextInt();
 		int flag = 0;
 		int i = 2;
-		while (i <= n) {// i<=n-1
+		while (i < n) {// i<=n-1
 			if (n % i == 0) {
 				System.out.println("not Prime");
 			   flag = 1;
