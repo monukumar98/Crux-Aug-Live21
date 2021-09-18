@@ -1,5 +1,6 @@
 package Lec15;
 
+
 public class String_Demo {
 
 	public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class String_Demo {
 		System.out.println(str1==str2);
 		
 		System.out.println(str.equals(str2));//Content Compare
+	
 		
 		
 		
