@@ -47,30 +47,24 @@ public class BookAlloctaion {
 
 	public static boolean isitpossible(int[] page, int nos, int mid) {
 		// TODO Auto-generated method stub
-		int student =1;
-		int readpage=0;
-		for (int i = 0; i < page.length; ) {
-			if(readpage+page[i]<=mid) {
-				readpage+=page[i];
+		int student = 1;
+		int readpage = 0;
+		for (int i = 0; i < page.length;) {
+			if (readpage + page[i] <= mid) {
+				readpage += page[i];
 				i++;
-			}
-			else {
+			} else {
 				student++;
-				readpage=0;
+				readpage = 0;
 			}
-			
-			if(student>nos) {
+
+			if (student > nos) {
 				return false;
 			}
-			
-			
+
 		}
 		return true;
-		
-		
-		
-		
-	
+
 	}
 
 }
