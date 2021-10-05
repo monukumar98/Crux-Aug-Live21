@@ -7,7 +7,7 @@ public class Fact {
 		System.out.println(fact(5));
 
 	}
-
+     // Head Recursion 
 	public static int fact(int n) {
 		//base case
 		if(n==1 || n==0) {

@@ -7,7 +7,7 @@ public class Power {
 		System.out.println(power(2, 7));
 
 	}
-
+// head Recursion
 	public static int power(int a, int b) {
 		// base Case
 		if (b == 0) {
