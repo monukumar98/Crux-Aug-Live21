@@ -8,14 +8,14 @@ public class Tower_Hanoi {
 
 	}
 
-	public static void Toh(int n, String t1, String t2, String t3) {
+	public static void Toh(int n, String src, String dis, String help) {
 		if (n == 0) {
 			return;
 		}
 
-		Toh(n - 1, t1, t3, t2);
-		System.out.println(n + "th  disc move from " + t1 + " to " + t2);
-		Toh(n - 1, t3, t2, t1);
+		Toh(n - 1, src, help, dis);
+		System.out.println(n + "th  disc move from " + src + " to " + dis);
+		Toh(n - 1, help, dis, src);
 
 	}
 
