@@ -20,7 +20,7 @@ public class Queen_Combinton {
 			if(!board[i]) {
 				board[i]=true;//do
 				
-				combination(board, tq, qpsf+1, ans+"b"+i+"Q"+qpsf+" ",i);//work
+				combination(board, tq, qpsf+1, ans+"b"+i+"Q"+qpsf+" ",i+1);//work
 				board[i]=false;//undo
 				
 			}
