@@ -18,13 +18,13 @@ public class Coin_Combination {
 		// TODO Auto-generated method stub
 		if(amount==0) {
 			//System.out.println(list);
-			 ans.add(list);
+		//	 ans.add(list);
 //			List<Integer> bs = new ArrayList<Integer>();
 //			for (int i = 0; i <list.size(); i++) {
 //				bs.add(list.get(i));
 //				
 //			}
-			//ans.add(new ArrayList<>(list));
+			ans.add(new ArrayList<>(list));
 			return;
 		}
 		
