@@ -1,15 +1,14 @@
 package Lec38;
 
-import Lec1.Student;
 
 public class Student_Clinet {
 	public static void main(String[] args) {
 
 		Student s = new Student();
 
-		//System.out.println(s.name + " " + s.age);
-		s.age = 22;
-		s.name = "kaju";
+		System.out.println(s.name + " " + s.age);
+//		s.age = 22;
+//		s.name = "kaju";
 		//System.out.println(s);
 		//System.out.println(s.name + " " + s.age);
 		Student s1 = s;
@@ -20,17 +19,24 @@ public class Student_Clinet {
 		s2.age = 28;
 		s3.name = "Hardik";
 		s3.age = 26;
-		System.out.println(s2.name + " " + s2.age);
-		System.out.println(s3.name + " " + s3.age);
-		System.out.println(".....................");
+//		System.out.println(s2.name + " " + s2.age);
+//		System.out.println(s3.name + " " + s3.age);
+//		System.out.println(".....................");
 		//Test1(s2, s3);
 		//Test2(s2, s3);
 		int my_age = 20;
 		String my_name = "C";
-		Test3(s2, s3.age, s3.name, my_age, my_name);
-		System.out.println("................");
-		System.out.println(s2.name + " " + s2.age);
-		System.out.println(s3.name + " " + s3.age);
+		//Test3(s2, s3.age, s3.name, my_age, my_name);
+//		System.out.println("................");
+//		System.out.println(s2.name + " " + s2.age);
+//		System.out.println(s3.name + " " + s3.age);
+		System.out.println("heheje");
+		s.Intro_yourSelf();
+		s2.Intro_yourSelf();
+		s2.Say("Raju");
+		s.Say("raju");
+		Student s4 = new Student("Karan", 17);
+		Student s5 = new Student("Katik", 22);
 
 	}
 	
