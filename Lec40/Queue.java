@@ -2,13 +2,13 @@ package Lec40;
 
 public class Queue {
 
-	private int[] arr;
-	private int front;
+	protected int[] arr;
+	protected int front;
 	private int size;
 
 	public Queue() {
 		// TODO Auto-generated constructor stub
-		System.out.println("in Queue");
+		
 		this.arr = new int[5];
 		this.front = 0;
 		this.size = 0;

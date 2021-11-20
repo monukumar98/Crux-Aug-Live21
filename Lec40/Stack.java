@@ -2,8 +2,8 @@ package Lec40;
 
 public class Stack {
 
-	private int[] arr;
-	int top;
+	protected int[] arr;
+	private int top;
 
 	public Stack() {
 		// TODO Auto-generated constructor stub
@@ -34,7 +34,7 @@ public class Stack {
 		if (this.Is_Full()) {
 			throw new Exception("pgl hai kya Stack full hai");
 		}
-
+         
 		this.arr[this.top] = item;
 		top++;
 
