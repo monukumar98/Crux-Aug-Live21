@@ -1,5 +1,7 @@
 package Lec44;
 
+import Lec44.LinkedList.Node;
+
 public class LinkedList_Client {
 
 	public static void main(String[] args) throws Exception {
@@ -24,6 +26,8 @@ public class LinkedList_Client {
 //		ll.Display();
 		System.out.println(ll.RemoveatAnyIndex(3));
 		ll.Display();
+		
+		
 		
 	}
 

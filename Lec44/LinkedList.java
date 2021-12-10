@@ -187,4 +187,94 @@ public class LinkedList {
 		System.out.println(".");
 	}
 
+//Lec45	
+
+	public void dataReverseI() throws Exception {
+
+		int left = 0;
+		int right = this.size - 1;
+		while (left < right) {
+			Node left_node = GetNode(left);
+			Node Right_node = GetNode(right);
+			int t = left_node.data;
+			left_node.data = Right_node.data;
+			Right_node.data = t;
+
+			left++;
+			right--;
+
+		}
+
+	}
+
+	public void PointerReverseI() {
+
+		Node prev = null;
+		Node curr = this.head;
+		while (curr != null) {
+			Node ahead = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = ahead;
+		}
+		Node temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+
+	}
+
+	public void PointerReverseRecursive() {
+		PointerReverseRecursive(this.head, null);
+		Node temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+
+	}
+
+	private void PointerReverseRecursive(Node curr, Node prev) {
+		if (curr == null) {
+			return;
+		}
+
+		PointerReverseRecursive(curr.next, curr);
+		curr.next = prev;
+
+	}
+
+	public void DataReverseRecursive() {
+		HeapMover mover = new HeapMover();
+		mover.left = this.head;
+		DataReverseRecursive(head, mover, 0);
+
+	}
+
+	public class HeapMover {
+		Node left;
+	}
+
+	private void DataReverseRecursive(Node curr, HeapMover mover, int count) {
+		if (curr == null) {
+			return;
+		}
+		DataReverseRecursive(curr.next, mover, count + 1);
+		if (count >= this.size / 2) {
+			int t = mover.left.data;
+			mover.left.data = curr.data;
+			curr.data = t;
+			mover.left = mover.left.next;
+
+		}
+	}
+
+	public int mid() {
+		Node slow = this.head;
+		Node fast = this.head;
+		while (fast.next != null && fast.next.next != null) {
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return slow.data;
+
+	}
+
 }
