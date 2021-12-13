@@ -277,4 +277,127 @@ public class LinkedList {
 
 	}
 
+	// Lec 47
+
+	public int kthfromend(int k) {
+		return kthfromend(k, this.head);
+
+	}
+
+	private int kthfromend(int k, Node nn) {
+		// TODO Auto-generated method stub
+		// fast ko k step chalo do
+		Node fast = nn;
+		for (int i = 1; i <= k; i++) {
+			fast = fast.next;
+
+		}
+		Node slow = nn;
+		while (fast != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		return slow.data;
+	}
+
+	public void create_Cycle() throws Exception {
+		Node nn = GetNode(2);
+		this.tail.next = nn;
+
+	}
+
+	public boolean FloyedCycledetcion() {
+		Node fast = this.head;
+		Node slow = this.head;
+		while (fast.next != null && fast.next.next != null) {
+			fast = fast.next.next;
+			slow = slow.next;
+			if (slow == fast) {
+				return true;
+			}
+		}
+
+		return false;
+
+	}
+
+	private Node GetCycleNode() {
+		Node fast = this.head;
+		Node slow = this.head;
+		while (fast.next != null && fast.next.next != null) {
+			fast = fast.next.next;
+			slow = slow.next;
+			if (slow == fast) {
+				return slow;
+			}
+		}
+
+		return null;
+
+	}
+
+	public void CycleRemoval1() {
+
+		Node meetup = GetCycleNode();
+		if (meetup == null) {
+			return;
+		}
+		Node start = this.head;
+		while (start != null) {
+
+			Node temp = meetup;
+			while (temp.next != meetup) {
+				if (temp.next == start) {
+					temp.next = null;
+					return;
+				}
+				temp = temp.next;
+			}
+			start = start.next;
+
+		}
+
+	}
+
+	public void CycleRemoval2() {
+		Node meetup = GetCycleNode();
+		if (meetup == null) {
+			return;
+		}
+		// Count Number of Node in a loop
+		int count = 1;
+		Node temp = meetup;
+		while (temp.next != meetup) {
+			count++;
+			temp = temp.next;
+		}
+		Node fast = this.head;
+		for (int i = 1; i <= count; i++) {
+			fast = fast.next;
+		}
+		Node slow = this.head;
+		while (slow.next != fast.next) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		fast.next = null;
+
+	}
+
+	public void FloyedCycleRemoval() {
+		Node meetup = GetCycleNode();
+		if (meetup == null) {
+			return;
+		}
+		Node temp = meetup;
+		Node start = this.head;
+		while (start.next != temp.next) {
+			start = start.next;
+			temp = temp.next;
+		}
+		temp.next = null;
+
+	}
 }
