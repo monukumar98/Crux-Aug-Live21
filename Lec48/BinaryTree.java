@@ -1,5 +1,6 @@
 package Lec48;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -178,7 +179,6 @@ public class BinaryTree {
 
 	}
 
-	
 	public void IntOrder() {
 		InOrder(this.root);
 		System.out.println();
@@ -194,7 +194,50 @@ public class BinaryTree {
 		InOrder(node.left);
 		System.out.print(node.data + " ");
 		InOrder(node.right);
-		
+
+	}
+
+	public void levelOrder() {
+		LinkedList<Node> queue = new LinkedList<>();
+		queue.add(this.root);
+
+		while (!queue.isEmpty()) {
+			Node rn = queue.remove();
+			System.out.print(rn.data + " ");
+			if (rn.left != null) {
+				queue.add(rn.left);
+			}
+			if (rn.right != null) {
+				queue.add(rn.right);
+			}
+
+		}
+
+	}
+
+	public void levelOrderLinewise() {
+		LinkedList<Node> queue = new LinkedList<>();
+		LinkedList<Node> helper = new LinkedList<>();
+		queue.add(this.root);
+
+		while (!queue.isEmpty()) {
+			Node rn = queue.remove();
+			System.out.print(rn.data + " ");
+
+			if (rn.left != null) {
+				helper.add(rn.left);
+			}
+			if (rn.right != null) {
+				helper.add(rn.right);
+
+			}
+			if (queue.isEmpty()) {
+				System.out.println();
+				queue = helper;
+				helper = new LinkedList<>();
+
+			}
+		}
 
 	}
 
