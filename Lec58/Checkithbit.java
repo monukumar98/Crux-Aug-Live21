@@ -4,7 +4,7 @@ public class Checkithbit {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int n = 89;
+		int n = 87;
 
 		System.out.println(is1(n, 2));
 	}

@@ -5,6 +5,7 @@ public class Uniq_one {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int [] arr= {2,3,2,5,3,5,7};
+		
 		System.out.println(Unqione(arr));
 
 	}

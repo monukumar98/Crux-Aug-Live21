@@ -4,7 +4,7 @@ public class Shift_op {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int a=89;
+		int a=87;
 		// right shift 
 		System.out.println(a>>4);//89/2^4
 		System.out.println((-5)>>1);

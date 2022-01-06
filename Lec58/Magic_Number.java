@@ -4,7 +4,7 @@ public class Magic_Number {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(nthnuber(6));
+		System.out.println(nthnuber(7));
 	}
 
 	public static int nthnuber(int n) {
