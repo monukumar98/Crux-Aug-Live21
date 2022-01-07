@@ -1,7 +1,6 @@
 package Lec60;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Graph {
 	HashMap<Integer, HashMap<Integer, Integer>> map;
@@ -99,8 +98,8 @@ public class Graph {
 	public void Printallpath(int src, int dis, HashSet<Integer> visited, String str) {
 
 		if (src == dis) {
-           System.out.println(str+dis);
-          
+			System.out.println(str + dis);
+
 		}
 		visited.add(src);
 		for (int nbrs : map.get(src).keySet()) {
@@ -110,6 +109,258 @@ public class Graph {
 			}
 		}
 		visited.remove(src);
+
+	}
+
+	// Lec61
+	public boolean BFS(int src, int dis) {
+
+		HashSet<Integer> visited = new HashSet<>();
+		Queue<Integer> q = new LinkedList<>();
+
+		q.add(src);// last me Addition
+		while (!q.isEmpty()) {
+			// remove
+			int rv = q.remove();// fast se remove
+
+			// Ignore if already visited
+			if (visited.contains(rv)) {
+				continue;
+			}
+
+			// src==dis
+			if (rv == dis) {
+				return true;
+			}
+
+			// Visited Marked
+			visited.add(rv);
+			// nbrs ko add kr rahe
+			for (int nbrs : map.get(rv).keySet()) {
+				if (!visited.contains(nbrs)) {
+					q.add(nbrs);
+				}
+			}
+
+		}
+		return false;
+
+	}
+
+	public boolean DFS(int src, int dis) {
+
+		HashSet<Integer> visited = new HashSet<>();
+		Stack<Integer> s = new Stack<>();
+
+		s.push(src);// last me Addition
+		while (!s.isEmpty()) {
+			// remove
+			int rv = s.pop();// fast se remove
+
+			// Ignore if already visited
+			if (visited.contains(rv)) {
+				continue;
+			}
+
+			// src==dis
+			if (rv == dis) {
+				return true;
+			}
+
+			// Visited Marked
+			visited.add(rv);
+			// nbrs ko add kr rahe
+			for (int nbrs : map.get(rv).keySet()) {
+				if (!visited.contains(nbrs)) {
+					s.push(nbrs);
+				}
+			}
+
+		}
+		return false;
+
+	}
+
+	public void BFT() {
+
+		HashSet<Integer> visited = new HashSet<>();
+		Queue<Integer> q = new LinkedList<>();
+		for (int src : map.keySet()) {
+
+			if (visited.contains(src)) {
+				continue;
+			}
+
+			q.add(src);// last me Addition
+			while (!q.isEmpty()) {
+				// remove
+				int rv = q.remove();// fast se remove
+
+				// Ignore if already visited
+				if (visited.contains(rv)) {
+					continue;
+				}
+
+				System.out.print(rv + " -->");
+
+				// Visited Marked
+				visited.add(rv);
+				// nbrs ko add kr rahe
+				for (int nbrs : map.get(rv).keySet()) {
+					if (!visited.contains(nbrs)) {
+						q.add(nbrs);
+					}
+				}
+
+			}
+		}
+		System.out.println();
+
+	}
+
+	public void DFT() {
+
+		HashSet<Integer> visited = new HashSet<>();
+		Stack<Integer> s = new Stack<>();
+		for (int src : map.keySet()) {
+			if (visited.contains(src)) {
+				continue;
+			}
+
+			s.push(src);// last me Addition
+			while (!s.isEmpty()) {
+				// remove
+				int rv = s.pop();// fast se remove
+
+				// Ignore if already visited
+				if (visited.contains(rv)) {
+					continue;
+				}
+
+				System.out.print(rv + " -->");
+
+				// Visited Marked
+				visited.add(rv);
+				// nbrs ko add kr rahe
+				for (int nbrs : map.get(rv).keySet()) {
+					if (!visited.contains(nbrs)) {
+						s.push(nbrs);
+					}
+				}
+
+			}
+
+		}
+		System.out.println();
+
+	}
+
+	public boolean isCycle() {
+		HashSet<Integer> visited = new HashSet<>();
+		Queue<Integer> q = new LinkedList<>();
+		for (int src : map.keySet()) {
+
+			if (visited.contains(src)) {
+				continue;
+			}
+			q.add(src);// last me Addition
+			while (!q.isEmpty()) {
+				// remove
+				int rv = q.remove();// fast se remove
+
+				// Ignore if already visited
+				if (visited.contains(rv)) {
+					return true;
+				}
+
+				// Visited Marked
+				visited.add(rv);
+				// nbrs ko add kr rahe
+				for (int nbrs : map.get(rv).keySet()) {
+					if (!visited.contains(nbrs)) {
+						q.add(nbrs);
+					}
+				}
+
+			}
+		}
+		return false;
+
+	}
+
+	public boolean isConected() {
+		HashSet<Integer> visited = new HashSet<>();
+		Queue<Integer> q = new LinkedList<>();
+		int count = 0;
+		for (int src : map.keySet()) {
+
+			if (visited.contains(src)) {
+				continue;
+			}
+			count++;
+			q.add(src);// last me Addition
+			while (!q.isEmpty()) {
+				// remove
+				int rv = q.remove();// fast se remove
+
+				// Ignore if already visited
+				if (visited.contains(rv)) {
+					continue;
+				}
+
+				// Visited Marked
+				visited.add(rv);
+				// nbrs ko add kr rahe
+				for (int nbrs : map.get(rv).keySet()) {
+					if (!visited.contains(nbrs)) {
+						q.add(nbrs);
+					}
+				}
+
+			}
+		}
+		return count == 1;
+
+	}
+
+	public void GetAllComponent() {
+		HashSet<Integer> visited = new HashSet<>();
+		Queue<Integer> q = new LinkedList<>();
+		ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+
+		for (int src : map.keySet()) {
+
+			if (visited.contains(src)) {
+				continue;
+			}
+			ArrayList<Integer> ll = new ArrayList<Integer>();
+			q.add(src);// last me Addition
+			while (!q.isEmpty()) {
+				// remove
+				int rv = q.remove();// fast se remove
+
+				// Ignore if already visited
+				if (visited.contains(rv)) {
+					continue;
+				}
+				ll.add(rv);
+				// Visited Marked
+				visited.add(rv);
+				// nbrs ko add kr rahe
+				for (int nbrs : map.get(rv).keySet()) {
+					if (!visited.contains(nbrs)) {
+						q.add(nbrs);
+					}
+				}
+
+			}
+			list.add(ll);
+		}
+		System.out.println(list);
+	}
+
+	public boolean isTree() {
+		return isConected() && !isCycle();
 
 	}
 
