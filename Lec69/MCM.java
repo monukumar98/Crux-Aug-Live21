@@ -1,4 +1,4 @@
-package Lec70;
+package Lec69;
 
 public class MCM {
 

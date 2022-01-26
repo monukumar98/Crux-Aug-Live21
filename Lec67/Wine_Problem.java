@@ -1,4 +1,4 @@
-package Lec68;
+package Lec67;
 
 public class Wine_Problem {
 

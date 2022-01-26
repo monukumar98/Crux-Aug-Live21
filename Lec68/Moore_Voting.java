@@ -1,4 +1,4 @@
-package Lec69;
+package Lec68;
 
 public class Moore_Voting {
 

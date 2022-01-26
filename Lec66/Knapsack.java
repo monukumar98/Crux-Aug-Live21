@@ -1,4 +1,4 @@
-package Lec67;
+package Lec66;
 
 public class Knapsack {
 	public static void main(String[] args) {

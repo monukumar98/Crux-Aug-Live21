@@ -1,4 +1,4 @@
-package Lec67;
+package Lec66;
 
 import java.util.Arrays;
 
